@@ -3,37 +3,48 @@ import axios from "axios";
 import Loading from "../medias/market.gif"
 
 
+
 class GetData extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       loading: true,
       error: false,
-      data: "",
+      data: {},
+      url: `https://jsonplaceholder.typicode.com/photos`,
+      id: props.productId.id,
+      title: props.productTitle.title
     }
   }
-  componentDidMount() {
 
-    axios
-      .get(`https://jsonplaceholder.typicode.com/photos`,
+  getProductData = async () => {
+    console.log(this.state.title)
+    try {
+      const { data } = await axios.get(
+        this.state.url,
         {
           headers: {
             "Content-Type": "application/json",
           },
           params: {
-            _limit: 100
+            _limit: 100,
+            id: this.state.id || null,
+            title: this.state.title || null,
           }
+        });
+      return data;
+    } catch (error) {
+      this.setState({ loading: false, error });
+    }
+  }
 
-        })
-      .then(response => {
-        if (response && response.data) {
-          console.log('list data', response.data)
-          this.setState({ data: response.data, loading: false });
-        }
-      })
-      .catch((error) => {
-        this.setState({ loading: false, error });
-      });
+  async componentDidMount() {
+    const productData = await this.getProductData();
+
+    return this.setState({
+      data: productData,
+      loading: false
+    })
   }
 
   render() {

@@ -1,5 +1,5 @@
 export const SET_AUTHENTIFICATION = "SET_AUTHENTIFICATION";
 export const INCREMENT_ACTION_PRODUCT = "INCREMENT_ACTION_PRODUCT";
-export const SEARCH = 'SEARCH';
-
-
+export const SEARCH = "SEARCH";
+export const ADD = "ADD";
+export const REMOVE = "REMOVE";

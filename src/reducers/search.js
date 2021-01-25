@@ -1,17 +1,17 @@
 import { SEARCH } from "../actions/action-types";
 
 const initialState = {
-  contents: ["Health Store", "Product"],
+  contents: [],
   value: "",
-  products: [],
+  //products: [],
 };
 
 export default function SearchReducer(state = initialState, action) {
   switch (action.type) {
     case SEARCH: {
       const { value } = action;
-      const products = state.contents.filter((val) => val.includes(value));
-      return { ...state, value, products };
+      //const products = state.contents.filter((val) => val.includes(value));
+      return { ...state, value };
     }
     default:
       return state;

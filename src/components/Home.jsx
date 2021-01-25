@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import ProductsList from "./ProductsList"
 import Search from "./SearchBar"
+import ProductsSearchResult from "./ProductsSearchResult"
 
 class Home extends Component {
     render() {
         return (
             <section>
-                {data => <Search {...data} />}
                 <div className="container my-4">
                     <h1>Welcome on our marketplace</h1>
+                    <Search />
+                    <ProductsSearchResult />
                     <br />
                     <ProductsList />
                 </div>
@@ -16,5 +18,6 @@ class Home extends Component {
         )
     }
 }
+
 
 export default Home

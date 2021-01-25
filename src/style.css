@@ -1,8 +1,53 @@
+@media screen and (min-width: 0px) {
+  .navbarMarginTop {
+    padding-top: 11rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media screen and (min-width: 768px) {
+  .navbarMarginTop {
+    padding-top: 10.5rem;
+  }
+}
+
+/* Large devices (desktops, 980px and up) */
+@media screen and (min-width: 980px) {
+  .navbarMarginTop {
+    padding-top: 8.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1220px and up)*/
+@media screen and (min-width: 1220px) {
+  .navbarMarginTop {
+    padding-top: 9rem;
+  }
+}
+
+/* Extra extra large devices (large desktops, 1380px and up) */
+@media (min-width: 1380px) {
+  .navbarMarginTop {
+    padding-top: 9rem;
+  }
+}
+
+
+
 .bgColorGreen {
   background-color: #64c9c3;
 }
 .iconShopSize {
   height: 200px;
   width: 200px;
+}
 
+.buttonEffect {
+  background-color: #64c9c3;
+}
+
+.buttonEffect:hover {
+  padding: 10px;
+  background-color: #fff !important;
+  border: 2px solid #64c9c3;
 }
