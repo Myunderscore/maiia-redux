@@ -9,9 +9,8 @@ class ProductDetail extends Component {
     }
     render() {
         const { id } = this.state;
-
         return (
-            <GetData productId={id} productTitle="">
+            <GetData productId={id.id} productTitle="">
                 {(data) => <Product {...data} />}
             </GetData>
         )

@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import * as actions from "../actions"
 import { Link } from "react-router-dom"
 import Logo from "../medias/logo-magasin-sante.jpeg"
+import SearchBar from "../components/SearchBar"
 
 class Header extends Component {
     onClickAutentification = () => {
@@ -24,10 +25,7 @@ class Header extends Component {
                         <Link to="/" title="Go to homepage" className="ml-2">
                             <img src={Logo} alt="logo of Health Store" style={{ width: "30%" }} />
                         </Link>
-                        <form className="mr-0">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <SearchBar />
                     </div>
                 </nav>
                 <div className="container">
@@ -38,7 +36,7 @@ class Header extends Component {
                             <Link to="/" title="Health Store website" className="nav-link font-weight-bold text-light">Health Store</Link>
                         </li>
                         <li className="nav-item ">
-                            <Link to="/products/1234" title="Detail of product selected" className="nav-link font-weight-bold text-light">Products</Link>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                         </li>
                         <li className="nav-item">
                             <a href="#" className="nav-link font-weight-bold text-light"
@@ -53,7 +51,6 @@ class Header extends Component {
                                 Basket <span className="bg-warning m-2 p-1">{basket.length}</span></Link>
                         </li>
                     </ul>
-
                 </div>
             </div>
         )
@@ -63,7 +60,7 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.authentification.isLoggedIn,
-        basket: state.counter.basket
+        basket: state.counter.basket,
     }
 }
 

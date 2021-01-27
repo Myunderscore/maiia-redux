@@ -2,8 +2,6 @@ import React from "react";
 import axios from "axios";
 import Loading from "../medias/market.gif"
 
-
-
 class GetData extends React.Component {
   constructor(props) {
     super(props)
@@ -12,13 +10,13 @@ class GetData extends React.Component {
       error: false,
       data: {},
       url: `https://jsonplaceholder.typicode.com/photos`,
-      id: props.productId.id,
-      title: props.productTitle.title
+      id: props.productId,
+      title: props.productTitle
     }
   }
 
   getProductData = async () => {
-    console.log(this.state.title)
+    console.log(this.state.id)
     try {
       const { data } = await axios.get(
         this.state.url,
@@ -27,7 +25,7 @@ class GetData extends React.Component {
             "Content-Type": "application/json",
           },
           params: {
-            _limit: 100,
+            _limit: 150,
             id: this.state.id || null,
             title: this.state.title || null,
           }

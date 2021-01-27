@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import GetData from "./GetData"
+import CardProduct from "./CardProduct"
 
 class ProductsSearchResult extends Component {
   render() {
-    const { products } = this.props;
-
+    const value = typeof window !== "undefined" &&
+      window && window.location.href &&
+      window.location.href.replace(/%20/g, " ").split("results/")[1].replace("?", "");
+    console.log("val", value)
     return (
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>{products}</tbody>
-      </table>
+      <div className="container my-4">
+        <div className="my-4">
+          <h1 >Results for products search (only full title)</h1>
+          <h3>for "{value}"</h3>
+        </div>
+        <GetData
+          productId=""
+          productTitle={value} >
+          {(data) => data
+            .map(item => <CardProduct {...item} key={item.id} />)}
+        </ GetData>
+        <br />  <br />  <br />  <br />
+      </div>
     );
   }
 }
 
 
-function mapStateToProps(products) {
+function mapStateToProps(state) {
   return {
-    products: products.search.products
+    products: state.search.value
   }
 }
 

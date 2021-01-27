@@ -4,12 +4,12 @@ const initialState = { basket: [], value: "" };
 
 export default function CounterReducer(state = initialState, action) {
   switch (action.type) {
-    case "ADD":
+    case ADD:
       const { value } = action;
       let basket = state.basket.concat(action.value);
       return { ...state, value, basket };
 
-    case "REMOVE":
+    case REMOVE:
       basket = state.basket.filter((value) => value !== action.value, 1);
       return { ...state, value, basket };
 

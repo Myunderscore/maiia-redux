@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import AddRemoveProduct from "./AddRemoveProduct"
 
 const Product = (product) => {
-    console.log("product in template", product)
     return (
         <div className="container my-5">
             <h4>Detail of the product</h4>
@@ -29,8 +28,8 @@ const Product = (product) => {
                     <div className="font-weight-bold mb-5">
                         Price: {product[0].title.length} euros.
                     </div>
-                    <div className="border border-primary mb-5" >
-                        <AddRemoveProduct />
+                    <div className="border border-primary mb-5 text-center" >
+                        <AddRemoveProduct toBasket={product[0].id} />
                     </div>
 
                 </div>
@@ -41,7 +40,7 @@ const Product = (product) => {
 
 
 Product.propTypes = {
-    data: PropTypes.object.isRequired,
+    product: PropTypes.object.isRequired,
 };
 
 

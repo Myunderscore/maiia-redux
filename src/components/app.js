@@ -5,6 +5,8 @@ import Home from "./Home";
 import ProductDetail from "./ProductDetail";
 import RequireAuthentification from "../helpers/require-authentification";
 import Basket from "./Basket";
+import ProductsSearchResult from "./ProductsSearchResult"
+
 
 require("../style.css");
 
@@ -21,6 +23,7 @@ export default class App extends Component {
             path="/basket/"
             component={RequireAuthentification(Basket)}
           />
+           <Route exact path="/results/:value" component={ProductsSearchResult} />
         </Switch>
       </div>
     );

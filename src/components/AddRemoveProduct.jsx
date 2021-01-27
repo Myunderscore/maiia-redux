@@ -6,7 +6,6 @@ class AddRemoveProduct extends React.Component {
   add = () => {
     const value = this.props.toBasket
     this.props.dispatch({ type: 'ADD', value });
-    console.log(this.props.toBasket)
   }
 
   remove = () => {
@@ -23,13 +22,14 @@ class AddRemoveProduct extends React.Component {
   }
 
   render() {
-
     return (
       <span className="text-center">
         <button className="btn btn-primary font-weight-bold pr-0"
+          title="Remove product"
           onClick={this.remove}>Remove</button>
         <span className="text-dark "> / </span>
         <button className="btn btn-primary font-weight-bold pl-0"
+          title="Add product"
           onClick={this.add}>Add</button>
       </span>
     )
