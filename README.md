@@ -11,6 +11,8 @@ npm install
 3. run project
 npm start
 
+Important: access to the basket is open only after click on login button ;)
+
 ############# framework, libraries, API
 - React
 - Redux
